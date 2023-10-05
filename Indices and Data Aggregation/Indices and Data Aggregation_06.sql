@@ -82,3 +82,56 @@ GROUP BY DepositGroup, IsDepositExpired
 ORDER BY DepositGroup DESC, IsDepositExpired
 
 SELECT * FROM WizzardDeposits
+
+-----------------12 Exercise 04/10/2023------------------
+
+-----------------13 Exercise 05/10/2023------------------
+
+USE SoftUni
+
+SELECT DepartmentID, SUM(Salary) AS TotalSalary
+FROM Employees
+GROUP BY DepartmentID
+ORDER BY DepartmentID
+
+-----------------14 Exercise 05/10/2023------------------
+
+SELECT DepartmentID, MIN(Salary) 
+FROM Employees
+WHERE DepartmentID IN (2, 5, 7) 
+	AND HireDate > '2000-01-01'
+GROUP BY DepartmentID
+
+-----------------15 Exercise 05/10/2023------------------
+
+SELECT * INTO EmployeesNew
+FROM Employees
+WHERE Salary > 30000
+
+DELETE
+FROM EmployeesNew
+WHERE ManagerID = 42
+
+UPDATE EmployeesNew
+SET Salary = Salary + 5000
+WHERE DepartmentID = 1
+
+SELECT DepartmentID, AVG(Salary)
+FROM EmployeesNew
+GROUP BY DepartmentID
+
+-----------------16 Exercise 05/10/2023------------------
+
+SELECT DepartmentID, MAX(Salary) AS MaxSalary
+FROM Employees
+GROUP BY DepartmentID
+HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
+
+-----------------17 Exercise 05/10/2023------------------
+
+SELECT COUNT(EmployeeID) AS [Count]
+FROM Employees
+WHERE ManagerID IS NULL
+
+-----------------18 Exercise 05/10/2023------------------
+
